@@ -5,3 +5,10 @@
   </h1>
 </div>
 
+<button class="button-send" (click)="onSend()">Send</button>
+<button class="button-add" (click)="onAdd()">Add</button>
+<div *ngIf="game && game.gameData">
+  <ul class="result">
+    <li class="result__item" *ngFor="let game of game.gameData">{{game.id}}: {{game.name}}</li>
+  </ul>
+</div>
