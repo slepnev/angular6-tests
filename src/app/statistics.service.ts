@@ -6,6 +6,7 @@ export class StatisticsService {
   constructor() {}
 
   send() {
+    console.log('send');
   }
 
 }

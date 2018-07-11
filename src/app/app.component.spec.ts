@@ -1,11 +1,15 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { PopupService } from '../shared/popup.service';
+import { GameService } from './game.service';
 
 describe('AppComponent', () => {
   let fixture, comp, popup;
   const popupServiceStub = {
     open: () => {}
+  };
+  const gameServiceStub = {
+    getGames: () => {}
   };
 
   beforeEach(async(() => {
@@ -13,7 +17,10 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
-      providers: [{'provide': PopupService, 'useValue': popupServiceStub}]
+      providers: [
+        {'provide': PopupService, 'useValue': popupServiceStub},
+        {'provide': GameService, 'useValue': gameServiceStub},
+       ]
     }).compileComponents();
     fixture = TestBed.createComponent(AppComponent);
     comp = fixture.componentInstance;

@@ -8,7 +8,7 @@ import { Observable, ReplaySubject } from 'rxjs';
 export class GameService {
   gameData: Array<any>;
   dataChange:  ReplaySubject<any>;
-  gamesUrl = 'https://any.com/games';
+  gamesUrl = 'http://localhost:3500/games';
 
   constructor(private http: HttpClient, private statisticsService: StatisticsService) {
     this.dataChange  = new ReplaySubject();
@@ -21,8 +21,17 @@ export class GameService {
       });
   }
 
+  addGame() {
+    this.makeAdd()
+      .subscribe(res => this.getGames());
+  }
+
   makeResponse(): Observable<any> {
     return this.http.get(this.gamesUrl);
+  }
+
+  makeAdd(): Observable<any> {
+    return this.http.post(this.gamesUrl, {'name': 'new'});
   }
 
   handleGameData(games) {
