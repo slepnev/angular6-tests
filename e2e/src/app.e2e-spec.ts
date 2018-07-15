@@ -59,7 +59,6 @@ describe('App Page e2e: "/"', () => {
   it('App click add button', () => {
     page.getSendButton().click();
     const count = page.getResaultElements().count();
-    console.log(count);
     page.getAddButton().click();
     expect(page.getResault().isDisplayed()).toBeTruthy();
     expect(page.getResaultElements().count()).toBeGreaterThan(count);
