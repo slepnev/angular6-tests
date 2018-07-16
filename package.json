@@ -4,11 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration=production",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e --port 4202",
-    "json": "json-server --p 3500 --watch json-server/games.json"
+    "json": "json-server --p 3505 --watch json-server/games.json"
   },
   "private": true,
   "dependencies": {
