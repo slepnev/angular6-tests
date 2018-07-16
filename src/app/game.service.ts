@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 
 import { StatisticsService } from './statistics.service';
 import { Observable, ReplaySubject } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Injectable()
 export class GameService {
   gameData: Array<any>;
   dataChange:  ReplaySubject<any>;
-  gamesUrl = 'http://localhost:3500/games';
+  gamesUrl = environment.api + '/games';
 
   constructor(private http: HttpClient, private statisticsService: StatisticsService) {
     this.dataChange  = new ReplaySubject();
